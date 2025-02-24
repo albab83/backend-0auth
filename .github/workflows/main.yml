@@ -14,15 +14,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Langkah kedua: Set up environment variables untuk satu langkah saja
+      # Langkah kedua: Set up environment variables untuk langkah-langkah berikutnya
       - name: Set up environment variables
-        run: |
-          echo "Using Google OAuth credentials..."
+        run: echo "Using Google OAuth credentials..."
         env:
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
 
-      # Langkah-langkah lainnya untuk aplikasi kamu
+      # Langkah ketiga: Install dependencies dan jalankan tes
       - name: Run tests
         run: |
           npm install
