@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Workflow ini akan dijalankan ketika ada push ke branch 'main'
+      - master  # Workflow ini akan dijalankan ketika ada push ke branch 'main'
 
 jobs:
   build:
