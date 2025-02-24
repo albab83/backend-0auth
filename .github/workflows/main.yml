@@ -19,8 +19,8 @@ jobs:
         run: |
           echo "Using Google OAuth credentials..."
         env:
-          GOOGLE_OAUTH_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_OAUTH_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
 
       # Langkah-langkah lainnya untuk aplikasi kamu
       - name: Run tests
