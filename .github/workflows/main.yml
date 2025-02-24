@@ -1,0 +1,32 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Workflow ini akan dijalankan ketika ada push ke branch 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Menentukan runner (virtual machine) yang digunakan
+
+    steps:
+      # Langkah pertama: Checkout kode dari repositori
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Langkah kedua: Set up environment variables untuk satu langkah saja
+      - name: Set up environment variables
+        run: |
+          echo "Using Google OAuth credentials..."
+        env:
+          GOOGLE_OAUTH_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_OAUTH_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+
+      # Langkah-langkah lainnya untuk aplikasi kamu
+      - name: Run tests
+        run: |
+          npm install
+          npm test
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
